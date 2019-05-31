@@ -138,5 +138,21 @@ class TestHotel(unittest.TestCase):
             self.weekend_reward_price * 2 + self.weekday_reward_price * 2
         )
 
+    def test_get_offer(self):
+        customer_request = CustomerRequest(
+            'Reward', 
+            ['14Mar2009(sat)', '15Mar2009(sun)',
+            '16Mar2009(mon)', '17Mar2009(tues)']
+        )
+
+        self.assertDictEqual(
+            self.hotel.get_offer(customer_request), 
+            {
+                'hotel': self.hotel, 
+                'price': self.weekend_reward_price * 2 + self.weekday_reward_price * 2
+            }
+        )
+
+
 if __name__ == '__main__':
     unittest.main()

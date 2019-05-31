@@ -53,11 +53,15 @@ class TestHotelChain(unittest.TestCase):
             [self.hotel_a, self.hotel_b, self.hotel_c]
         )
 
-    def test_load_from_file(self):
-        hotel_chain = HotelChain.load_from_file()
-        self.assertEqual(hotel_chain.hotels[0].name, 'Lakewood')
-        self.assertEqual(hotel_chain.hotels[1].name, 'Bridgewood')
-        self.assertEqual(hotel_chain.hotels[2].name, 'Ridgewood')
+    def test_get_lowest_offer_one_contender(self):
+        customer_request = CustomerRequest(
+            'Regular', 
+            []
+        )
+        HotelChain.get_lowest_offer(
+            None, 
+            self.hotel_a.get_offer(customer_request)
+        )
 
     def test_calculate_regular_empty(self):
         customer_request = CustomerRequest(

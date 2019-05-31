@@ -35,6 +35,12 @@ class Hotel:
         weekend_price = self.weekend_price(customer_request.weekends_count, user_type_prices)
         return weekday_price + weekend_price
 
+    def get_offer(self, customer_request):
+        return {
+            'hotel': self, 
+            'price': self.calculate_price(customer_request)
+        }
+
     @classmethod
     def weekday_price(cls, days_count, prices):
         return days_count * prices['weekday']

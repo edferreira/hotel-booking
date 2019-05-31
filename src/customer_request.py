@@ -3,9 +3,9 @@ class CustomerRequest:
     def __init__(self, customer_type, requested_dates):
         self.customer_type = customer_type
         self.request_dates = requested_dates
-        self.set_weekends_weekdays()
+        self.set_weekends_and_weekdays()
 
-    def set_weekends_weekdays(self):
+    def set_weekends_and_weekdays(self):
         weekdays_count = 0
         weekends_count = 0
 
