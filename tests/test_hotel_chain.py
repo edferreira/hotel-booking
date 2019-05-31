@@ -5,10 +5,11 @@ class TestHotelChain(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_loader(self):
-        me = HotelChain.load_from_file()
-        self.assertEqual(me, '../hotels.json')
-
+    def test_load_from_file(self):
+        hotel_chain = HotelChain.load_from_file()
+        # self.assertEqual(hotel_chain.hotels[0].name, 'Lakewood')
+        # self.assertEqual(hotel_chain.hotels[1].name, 'Bridgewood')
+        # self.assertEqual(hotel_chain.hotels[1].name, 'Ridgewood')
 
 if __name__ == '__main__':
     unittest.main()
