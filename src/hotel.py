@@ -14,8 +14,8 @@ class Hotel:
     def __repr__(self):
         return "%s %s %s"% (self.name, self.rating, self.prices)
 
-    @classmethod 
-    def load_hotel_prices(self,prices):
+    @staticmethod
+    def load_hotel_prices(prices):
         formated_prices = {
             'Regular': {
                 'weekend': prices['weekend']['Regular'],
