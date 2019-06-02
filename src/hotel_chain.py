@@ -34,22 +34,22 @@ class HotelChain:
             )
 
         if cheapest_offer: 
-            print (cheapest_offer)
-            print (cheapest_offer["price"])
-            print (cheapest_offer["hotel"])
             return cheapest_offer['hotel'].name
         return None
 
     @staticmethod
     def get_lowest_offer(current_cheapest_offer, contender_offer):
         """Compares two offers prices, based on price first 
-        and hotel raiting second"""
-        if(not current_cheapest_offer): return contender_offer
-
-    @staticmethod
-    def create_offer(hotel, customer_request):
-        return {
-            'hotel': hotel, 
-            'price': hotel.calculate_price(customer_request)
-        }
-    
+        and hotel rating second"""
+        if not current_cheapest_offer: 
+            return contender_offer
+        elif not contender_offer:
+            return current_cheapest_offer
+        elif contender_offer['price'] < current_cheapest_offer['price']:
+            return contender_offer
+        elif contender_offer['price'] > current_cheapest_offer['price']:
+            return current_cheapest_offer
+        elif contender_offer['hotel'].rating > current_cheapest_offer['hotel'].rating:
+            return contender_offer
+        else: 
+            return current_cheapest_offer
