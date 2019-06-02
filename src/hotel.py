@@ -1,7 +1,3 @@
-class HotelPrices:
-    def __init__(self, prices):
-        self.prices = prices
-
 class Hotel:
     def __init__(self, name, rating, prices):
         self.name = name
